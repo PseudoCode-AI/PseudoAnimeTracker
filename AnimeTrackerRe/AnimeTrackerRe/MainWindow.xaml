@@ -7,7 +7,7 @@
         xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
         xmlns:local1="clr-namespace:AnimeTrackerRe.Views.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1500">
     <Grid>
 
         <Grid >
@@ -32,8 +32,8 @@
                 <TabItem Header="ANIME LIST">
                     <local1:AnimeListTab Loaded="AnimeListTab_Loaded"></local1:AnimeListTab>
                 </TabItem>
-                <!--<TabItem Header="PLATE INVENTORY" >
-                    <local1:InventoryManager Loaded="InventoryManager_Loaded"></local1:InventoryManager>
+                <!--<TabItem Header="ANIME VIEWER" >
+                    <local1:AnimeViewerTab Loaded="AnimeViewerTab_Loaded"></local1:AnimeViewerTab>
 
                 </TabItem>-->
 

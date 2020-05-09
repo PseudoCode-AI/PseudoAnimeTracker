@@ -26,5 +26,6 @@ namespace AnimeTrackerRe
         }
 
         private void AnimeListTab_Loaded(object sender, RoutedEventArgs e) { }
+        //private void AnimeViwerTab_Loaded(object sender, RoutedEventArgs e) { }
     }
 }

@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:AnimeTrackerRe.Views.UserControls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+             d:DesignHeight="800" d:DesignWidth="1500" Loaded="UserControl_Loaded">
 
     <UserControl.Resources></UserControl.Resources>
-    <Grid Background="WhiteSmoke">
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
             <!-- 0-->
             <ColumnDefinition Width="*"/>
             <!-- 1-->
@@ -23,14 +23,14 @@
             <!-- 4-->
             <!--<ColumnDefinition Width="*"/>-->
             <!-- 5-->
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
             <!-- 6-->
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
+            <RowDefinition Height="120"/>
             <!-- 0-->
-            <RowDefinition Height="45"/>
+            
             <!-- 1-->
             <RowDefinition Height="*"/>
             <!-- 2-->
@@ -40,72 +40,75 @@
             <!-- 4-->
             <RowDefinition Height="*"/>
             <!-- 5-->
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="20"/>
             <!-- 6-->
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2">
+        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="1" HorizontalAlignment="Right">
           
 
-            <Label  Margin="0 20 10 0" Content="Anime Title:" FontWeight="Bold" />
+            <Label  Margin="0 10 10 0" Content="Search Anime:" FontWeight="Bold" VerticalAlignment="Center"/>
             <TextBox x:Name="AnimeTitleTxt"  Width="220" Margin="0 10 10 0" Height="30" 
-                      KeyDown="AnimeTitleTxt_KeyDown"></TextBox>
+                      KeyDown="AnimeTitleTxt_KeyDown" materialDesign:HintAssist.Hint="Search" VerticalAlignment="Center"></TextBox>
 
             
+        </StackPanel>
+
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="4" Grid.Row="0">
+            <Button x:Name="filterBtn" Grid.Column="4" Grid.Row="0"  Width="120" Margin="10 10 10 0" Height="30" 
+                BorderBrush="#FF2196F3" Click="filterBtn_Click" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>SEARCH</TextBlock>
+                    <TextBlock Text=" "></TextBlock>
+                    <materialDesign:PackIcon Kind="SearchAddOutline" Foreground="White"  Width="18" Height="18"/>
+
+                </StackPanel>
+                <Button.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
+                </Button.BitmapEffect>
+                <Button.Background >
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
+                        <GradientStop Color="LightBlue" Offset="0" />
+                        <GradientStop Color="#FF2196F3" Offset=".5" />
+
+
+                    </LinearGradientBrush>
+                </Button.Background>
+
+            </Button>
+
+            <Button x:Name="clearFilterBtn" Grid.Column="4" Grid.Row="0"  Width="45" Margin="0 10 0 0" Height="30" 
+                BorderBrush="#FF2196F3" Click="ClearFilterBtn_Click" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+
+                    <materialDesign:PackIcon Kind="EraserVariant" Foreground="White"  Width="14" Height="14" FontSize="14"/>
+
+                </StackPanel>
+                <Button.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
+                </Button.BitmapEffect>
+                <Button.Background >
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
+                        <GradientStop Color="LightBlue" Offset="0" />
+                        <GradientStop Color="#FF2196F3" Offset=".5" />
+
+
+                    </LinearGradientBrush>
+                </Button.Background>
+
+            </Button>
+
         </StackPanel>
         
 
 
 
-        <Button x:Name="filterBtn" Grid.Column="4" Grid.Row="0"  Width="120" Margin="10 10 10 0" Height="30" 
-                BorderBrush="#FF2196F3" Click="filterBtn_Click" HorizontalAlignment="Left">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock>SEARCH</TextBlock>
-                <TextBlock Text=" "></TextBlock>
-                <materialDesign:PackIcon Kind="SearchAddOutline" Foreground="White"  Width="18" Height="18"/>
-
-            </StackPanel>
-            <Button.BitmapEffect>
-                <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
-            </Button.BitmapEffect>
-            <Button.Background >
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
-                    <GradientStop Color="LightBlue" Offset="0" />
-                    <GradientStop Color="#FF2196F3" Offset=".5" />
-
-
-                </LinearGradientBrush>
-            </Button.Background>
-
-        </Button>
-
-        <Button x:Name="clearFilterBtn" Grid.Column="4" Grid.Row="0"  Width="45" Margin="0 10 0 0" Height="30" 
-                BorderBrush="#FF2196F3" Click="ClearFilterBtn_Click" HorizontalAlignment="Right">
-            <StackPanel Orientation="Horizontal">
-                
-                <materialDesign:PackIcon Kind="EraserVariant" Foreground="White"  Width="14" Height="14" FontSize="14"/>
-
-            </StackPanel>
-            <Button.BitmapEffect>
-                <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
-            </Button.BitmapEffect>
-            <Button.Background >
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
-                    <GradientStop Color="LightBlue" Offset="0" />
-                    <GradientStop Color="#FF2196F3" Offset=".5" />
-
-
-                </LinearGradientBrush>
-            </Button.Background>
-
-        </Button>
-
-
-
 
         <DataGrid x:Name="JobGrid" AutoGenerateColumns="True" Grid.Column="1" 
-                  Grid.ColumnSpan="2" Grid.Row="2" Margin="0 30 0 0" Grid.RowSpan="4" 
+                  Grid.ColumnSpan="2" Grid.Row="1" Margin="0 0 0 0" Grid.RowSpan="4" 
                   CanUserAddRows="False"  ItemsSource="{Binding jobsList}" 
                   CanUserReorderColumns="False" CanUserResizeColumns="False" 
                   AlternatingRowBackground="#d9f5ff" IsReadOnly="True" SelectionMode="Single" AutoGeneratingColumn="JobGrid_AutoGeneratingColumn" SelectionChanged="JobGrid_SelectionChanged">
@@ -120,8 +123,8 @@
 
         </DataGrid>
 
-        <DataGrid x:Name="JobPlatesGrid" AutoGenerateColumns="True" Grid.Column="5" 
-                  Grid.ColumnSpan="1" Grid.Row="2" Margin="0 30 0 0" Grid.RowSpan="3" 
+        <DataGrid x:Name="JobPlatesGrid" AutoGenerateColumns="True" Grid.Column="3" 
+                  Grid.ColumnSpan="2" Grid.Row="1" Margin="20 0 0 0" Grid.RowSpan="4" 
                   CanUserAddRows="False"   
                   CanUserReorderColumns="False" CanUserResizeColumns="False" 
                   AlternatingRowBackground="#d9f5ff" IsReadOnly="True" SelectionMode="Single" AutoGeneratingColumn="JobPlatesGrid_AutoGeneratingColumn">
@@ -136,10 +139,10 @@
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
 
-        <StackPanel Grid.Column="4" Grid.Row="4" Grid.RowSpan="2" Orientation="Vertical" VerticalAlignment="Bottom">
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="2" Orientation="Horizontal" VerticalAlignment="Center">
 
             <Button x:Name="addJobBtn" 
-                    Height="40"   Width="145" Click="AddAnimeBtn_Click" BorderBrush="#FF2196F3" Margin="0 0 0 10">
+                    Height="40"   Width="145" Click="AddAnimeBtn_Click" BorderBrush="#FF2196F3" Margin="20 0 0 0">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>ADD ANIME</TextBlock>
                     <TextBlock Text="  "></TextBlock>
@@ -160,7 +163,7 @@
             </Button>
 
             <Button x:Name="changeStatusBtn" 
-                    Height="40"   Width="145" Click="changeStatusBtn_Click" BorderBrush="#FF2196F3" Margin="0 0 0 10">
+                    Height="40"   Width="145" Click="changeStatusBtn_Click" BorderBrush="#FF2196F3" Margin="20 0 0 0">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>EDIT MODE</TextBlock>
                     <TextBlock Text="  "></TextBlock>
@@ -181,7 +184,7 @@
             </Button>
 
             <Button  x:Name="refreshButton" 
-                     Height="40"   Width="145" BorderBrush="#FF2196F3" Click="refreshButton_Click" Margin="0 0 0 10" >
+                     Height="40"   Width="145" BorderBrush="#FF2196F3" Click="refreshButton_Click" Margin="20 0 0 0" >
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Refresh</TextBlock>
                     <TextBlock Text="  "></TextBlock>

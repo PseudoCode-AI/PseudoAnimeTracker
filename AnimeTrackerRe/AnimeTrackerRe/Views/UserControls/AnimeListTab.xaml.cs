@@ -55,6 +55,11 @@ namespace AnimeTrackerRe.Views.UserControls
                 filterBtn_Click(this, new RoutedEventArgs());
             }
 
+            if (e.Key == Key.Escape)
+            {
+                ClearFilterBtn_Click(this, new RoutedEventArgs());
+            }
+           
         }
 
         private void filterBtn_Click(object sender, RoutedEventArgs e)
