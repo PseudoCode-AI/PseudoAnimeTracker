@@ -7,7 +7,7 @@
         xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
         xmlns:local1="clr-namespace:AnimeTrackerRe.Views.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1500">
+        Title="Anime Tracker" Height="800" Width="1500" WindowState="Maximized" Icon="transparent_reaper_profile_5_transparent___copy_sIP_icon.ico">
     <Grid>
 
         <Grid >
@@ -22,7 +22,7 @@
                     <GradientStop Color="LightBlue" Offset="1" />
                 </LinearGradientBrush>
             </Grid.Background>-->
-            <dragablz:TabablzControl>
+            <dragablz:TabablzControl FontSize="20" >
 
 
                 <dragablz:TabablzControl.InterTabController>

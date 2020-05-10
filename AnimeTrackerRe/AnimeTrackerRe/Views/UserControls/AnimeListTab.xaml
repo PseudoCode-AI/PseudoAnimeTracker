@@ -10,6 +10,15 @@
 
     <UserControl.Resources></UserControl.Resources>
     <Grid Background="White">
+        
+        
+            
+            <!--<Image   Grid.RowSpan="7" Grid.ColumnSpan="7" Source="/Resources/Dragon Ball - Legendary Dragon.jpg"   
+                           HorizontalAlignment="Right" VerticalAlignment="Top" Width="auto" Height="auto">
+
+            </Image>-->
+        
+     
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <!-- 0-->
@@ -45,12 +54,31 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="1" HorizontalAlignment="Right">
-          
+        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
 
-            <Label  Margin="0 10 10 0" Content="Search Anime:" FontWeight="Bold" VerticalAlignment="Center"/>
-            <TextBox x:Name="AnimeTitleTxt"  Width="220" Margin="0 10 10 0" Height="30" 
-                      KeyDown="AnimeTitleTxt_KeyDown" materialDesign:HintAssist.Hint="Search" VerticalAlignment="Center"></TextBox>
+
+            <TextBlock  Margin="0 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">SEARCH ANIME :</TextBlock>
+            <Border CornerRadius="10" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+                <TextBox x:Name="AnimeTitleTxt"  Width="220" Margin="5 5 10 0" Height="45" 
+                      KeyDown="AnimeTitleTxt_KeyDown" materialDesign:HintAssist.Hint="Type Here to Search" VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff"   >
+                    <!--<TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"></Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                    <Setter Property="TextDecorations" Value="Underline"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>-->
+
+
+                </TextBox>
+
+            </Border>
+         
 
             
         </StackPanel>
@@ -58,12 +86,12 @@
 
 
         <StackPanel Orientation="Horizontal" Grid.Column="4" Grid.Row="0">
-            <Button x:Name="filterBtn" Grid.Column="4" Grid.Row="0"  Width="120" Margin="10 10 10 0" Height="30" 
+            <Button x:Name="filterBtn" Grid.Column="4" Grid.Row="0"  Width="145" Margin="20 0 0 0" Height="40" 
                 BorderBrush="#FF2196F3" Click="filterBtn_Click" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>SEARCH</TextBlock>
-                    <TextBlock Text=" "></TextBlock>
-                    <materialDesign:PackIcon Kind="SearchAddOutline" Foreground="White"  Width="18" Height="18"/>
+                    <TextBlock Text="   "></TextBlock>
+                    <materialDesign:PackIcon Kind="Magnify" Foreground="White"  Width="20" Height="20"/>
 
                 </StackPanel>
                 <Button.BitmapEffect>
@@ -80,7 +108,7 @@
 
             </Button>
 
-            <Button x:Name="clearFilterBtn" Grid.Column="4" Grid.Row="0"  Width="45" Margin="0 10 0 0" Height="30" 
+            <Button x:Name="clearFilterBtn" Grid.Column="4" Grid.Row="0"  Width="50" Margin="20 0 0 0" Height="40" 
                 BorderBrush="#FF2196F3" Click="ClearFilterBtn_Click" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal">
 
