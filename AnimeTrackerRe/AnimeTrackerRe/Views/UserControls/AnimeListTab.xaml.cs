@@ -60,6 +60,10 @@ namespace AnimeTrackerRe.Views.UserControls
                 ClearFilterBtn_Click(this, new RoutedEventArgs());
             }
            
+            if (e.Key == Key.RightShift)
+            {
+                AddAnimeBtn_Click(this, new RoutedEventArgs());
+            }
         }
 
         private void filterBtn_Click(object sender, RoutedEventArgs e)

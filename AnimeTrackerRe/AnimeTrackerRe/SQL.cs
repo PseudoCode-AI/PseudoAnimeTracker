@@ -168,8 +168,8 @@ namespace AnimeTrackerRe
         public bool InsertJobIntoSchedule(AnimeListObject job)
         {
             string query = $"INSERT INTO ListOfAnime(AnimeId, AnimeTitle, OverallRating, StoryRating, AnimationRating, MusicRating, AnimeDescription)"+
-                $" VALUES({job.AnimeId}, {job.AnimeTitle}, {job.OverallRating}, {job.StoryRating}, " +
-                $"{job.AnimationRating}, {job.MusicRating}, {job.AnimeDescription} );";
+                $" VALUES({job.AnimeId}, '{job.AnimeTitle}', {job.OverallRating}, '{job.StoryRating}', " +
+                $"'{job.AnimationRating}', '{job.MusicRating}', '{job.AnimeDescription}' );";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -241,6 +241,9 @@ namespace AnimeTrackerRe
                 }
             }
         }
+
+
+
         public ObservableCollection<AnimeListObject> LoadPlatesForSelectedJob(int AnimeID)
         {
             ObservableCollection<AnimeListObject> platesList = new ObservableCollection<AnimeListObject>();

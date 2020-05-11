@@ -4,9 +4,186 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnimeTrackerRe.Views"
+        xmlns:xctk="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AddAnimeWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="AddAnimeWindow" Height="750" Width="800" MinHeight="750" MinWidth="800" MaxHeight="750" MaxWidth="800"  WindowStartupLocation="CenterScreen">
+    <Border Padding="10" >
+
+        <StackPanel>
+            <Grid>
+                <Grid.Resources >
+                    <Style TargetType="Border" >
+                        <Setter Property="Padding" Value="10,10,10,10" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="230"/>
+                    <ColumnDefinition Width="230"/>
+                  
+                  
+                    
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <!--0 -->              
+                    <RowDefinition Height="70"/>
+                    <!-- 1-->              
+                    <RowDefinition Height="70"/>
+                    <!-- 2-->              
+                    <RowDefinition Height="70"/>
+                    <!-- 3-->              
+                    <RowDefinition Height="70"/>
+                    <!-- 4-->              
+                    <RowDefinition Height="70"/>
+                    <!-- 5-->              
+                    <RowDefinition Height="70"/>
+                    <!-- 6-->
+                    <RowDefinition Height="70"/>
+
+                    <RowDefinition Height="50"/>
+                    <!-- 13-->
+                    <RowDefinition Height="70"/>
+                    <!-- 14-->
+                </Grid.RowDefinitions>
+
+               
+
+
+                    <TextBlock  Grid.Column="1" Grid.Row="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">ANIME ID :</TextBlock>
+                    <Border Grid.Column="2" Grid.Row="1" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+                        <TextBox x:Name="AnimeIDTxt"  Width="180" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="Auto-Generate" VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff"  PreviewTextInput="ValidateNoLetters" >
+                   
+
+
+                        </TextBox>
+                    </Border>
+
+
+
+                    <TextBlock  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">ANIME TITLE :</TextBlock>
+                    <Border Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+                        <TextBox x:Name="AnimeTitleTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="* Type Name of Anime" VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff"   >
+
+
+
+                        </TextBox>
+                    </Border>
+
+
+                    <TextBlock  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">OVERALL RATING :</TextBlock>
+                    <Border Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+                        <TextBox x:Name="OverallRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="Type Rating Out of 10" VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff" PreviewTextInput="ValidateDecimalNumber"  >
+
+
+
+                        </TextBox>
+                    </Border>
+
+
+                    <TextBlock Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">STORY RATING :</TextBlock>
+                    <Border Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+                        <TextBox x:Name="StoryRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="Describe with Words the Story Rating" VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff"   >
+
+
+
+                        </TextBox>
+                    </Border>
+
+
+                    <TextBlock Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">ANIMATION RATING :</TextBlock>
+                    <Border  Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+                        <TextBox x:Name="AnimationRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="Describe with Words the Animation Rating" VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff"   >
+
+
+
+                        </TextBox>
+                    </Border>
+
+
+                    <TextBlock Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">MUSIC RATING :</TextBlock>
+                    <Border Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+                        <TextBox x:Name="MusicRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="Describe with Words the Music Rating" VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff"   >
+
+
+
+                        </TextBox>
+                    </Border>
+
+                <TextBlock Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">DESCRIPTION :</TextBlock>
+                     <Border Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+                         <TextBox x:Name="AnimeDescriptionTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                            materialDesign:HintAssist.Hint="Describe the Anime" VerticalAlignment="Center"
+                          FontSize="20"   Background="#fff"   >
+
+
+
+                         </TextBox>
+                     </Border>
+
+                <TextBlock Grid.Row="8" Grid.Column="2" FontStyle="Italic" FontSize="14" Margin="10">* Fields have to be filled in</TextBlock>
+
+
+                <!--///////////////////////////////////////////////////Buttons/////////////////////////////////////////////////////-->
+                    <Button Grid.Column="1" Grid.Row="9"  x:Name="submitJobBtn" Content="Submit" Height="40" Margin="10 10 10 10"  Grid.ColumnSpan="1" Click="SubmitJobBtn_Click">
+                        <Button.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
+                        </Button.BitmapEffect>
+                        <Button.Background >
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
+                                <GradientStop Color="LightBlue" Offset="0" />
+                                <GradientStop Color="#FF2196F3" Offset=".5" />
+
+
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                
+                <Button Grid.Column="2" Grid.Row="9"  x:Name="AddAnotherJobBtn" Content="Submit + Add Another" Height="40" Margin="10 10 10 10"  Grid.ColumnSpan="1" Click="AddAnotherJobBtn_Click">
+                    <Button.BitmapEffect>
+                        <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
+                    </Button.BitmapEffect>
+                    <Button.Background >
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
+                            <GradientStop Color="LightBlue" Offset="0" />
+                            <GradientStop Color="#FF2196F3" Offset=".5" />
+
+
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button Grid.Column="3" Grid.Row="9" x:Name="cancelOrderBtn" Content="Cancel" Height="40" IsCancel="True" Grid.ColumnSpan="1" Margin="10 10 10 10">
+                        <Button.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" Direction="180" ShadowDepth="5" Opacity=".5"></DropShadowBitmapEffect>
+                        </Button.BitmapEffect>
+                        <Button.Background >
+                            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0" >
+                                <GradientStop Color="LightBlue" Offset="0" />
+                                <GradientStop Color="#FF2196F3" Offset=".5" />
+
+
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+            </Grid>
+        </StackPanel>
+    </Border>
 </Window>
