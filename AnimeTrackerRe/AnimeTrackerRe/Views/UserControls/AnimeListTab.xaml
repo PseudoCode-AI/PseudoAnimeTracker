@@ -54,12 +54,26 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+        <!--<StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Right">-->
 
 
-            <TextBlock  Margin="0 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">SEARCH ANIME :</TextBlock>
-            <Border CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
-                <TextBox x:Name="AnimeTitleTxt"  Width="220" Margin="15 5 10 0" Height="45" 
+            <TextBlock Grid.Row="0" Grid.Column="2" Margin="0 0 10 0"  FontSize ="20" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center">SEARCH ANIME :</TextBlock>
+            <Border Grid.Row="0" Grid.Column="3" CornerRadius="20" Background="White" Width="230" HorizontalAlignment="Left" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderThickness" Value="3"></Setter>
+                            <Setter Property="Effect" >
+                                <Setter.Value>
+                                    <DropShadowEffect Opacity="1" ></DropShadowEffect>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+                <TextBox x:Name="AnimeTitleTxt"  Width="190" Margin="15 5 10 0" Height="45" HorizontalAlignment="Left"
                       KeyDown="AnimeTitleTxt_KeyDown" materialDesign:HintAssist.Hint="Type Here to Search" VerticalAlignment="Center"
                      FontSize="20"   Background="#fff"   >
                     <!--<TextBox.Style>
@@ -77,16 +91,39 @@
 
                 </TextBox>
             </Border>
-        </StackPanel>
+        
+        <!--</StackPanel>-->
+
+        <TextBlock Grid.Row="0" Grid.Column="4" Margin="80 0 10 0"  FontSize ="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center">TOTAL ANIME :</TextBlock>
+        <Border Grid.Row="0" Grid.Column="4" CornerRadius="20" Background="White" Width="70" HorizontalAlignment="Right" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
+            <TextBox x:Name="TotalAnimeTxt"  Width="40" Margin="20 5 10 0" Height="45" HorizontalAlignment="Left"
+                      KeyDown="AnimeTitleTxt_KeyDown"  VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff"  IsEnabled="False" >
+                <!--<TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Foreground" Value="Blue"></Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Foreground" Value="Blue"></Setter>
+                                    <Setter Property="TextDecorations" Value="Underline"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>-->
+
+
+            </TextBox>
+        </Border>
 
 
 
-        <StackPanel Orientation="Horizontal" Grid.Column="4" Grid.Row="0">
-            <Button x:Name="filterBtn" Grid.Column="4" Grid.Row="0"  Width="145" Margin="20 0 0 0" Height="40" 
+
+        <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Right">
+            <Button x:Name="filterBtn" Grid.Column="4" Grid.Row="0"  Width="50" Margin="20 0 0 0" Height="40" 
                 BorderBrush="#FF2196F3" Click="filterBtn_Click" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock>SEARCH</TextBlock>
-                    <TextBlock Text="   "></TextBlock>
+                    <!--<TextBlock>SEARCH</TextBlock>-->
+                    <!--<TextBlock Text="   "></TextBlock>-->
                     <materialDesign:PackIcon Kind="Magnify" Foreground="White"  Width="20" Height="20"/>
 
                 </StackPanel>
@@ -108,7 +145,7 @@
                 BorderBrush="#FF2196F3" Click="ClearFilterBtn_Click" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal">
 
-                    <materialDesign:PackIcon Kind="EraserVariant" Foreground="White"  Width="14" Height="14" FontSize="14"/>
+                    <materialDesign:PackIcon Kind="CircleArrows" Foreground="White"  Width="20" Height="20" FontSize="14"/>
 
                 </StackPanel>
                 <Button.BitmapEffect>
@@ -135,7 +172,8 @@
                   Grid.ColumnSpan="2" Grid.Row="1" Margin="0 0 0 0" Grid.RowSpan="4" 
                   CanUserAddRows="False"  ItemsSource="{Binding jobsList}" 
                   CanUserReorderColumns="False" CanUserResizeColumns="False" 
-                  AlternatingRowBackground="#d9f5ff" IsReadOnly="True" SelectionMode="Single" AutoGeneratingColumn="JobGrid_AutoGeneratingColumn" SelectionChanged="JobGrid_SelectionChanged">
+                  AlternatingRowBackground="#d9f5ff" IsReadOnly="True" SelectionMode="Single" AutoGeneratingColumn="JobGrid_AutoGeneratingColumn" 
+                  SelectionChanged="JobGrid_SelectionChanged" x:FieldModifier="public">
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontWeight" Value="Bold" />

@@ -6,6 +6,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using AnimeTrackerRe.Views.UserControls;
 
 namespace AnimeTrackerRe
 {
@@ -13,6 +15,11 @@ namespace AnimeTrackerRe
     {
    
         SQL SQLCaller = new SQL();
+
+        //private void CallRefreshButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    refreshButton_Click(this, new RoutedEventArgs());
+        //}
 
         internal void UpdateJobStatus(string jobNum, string distNum, string status)
         {

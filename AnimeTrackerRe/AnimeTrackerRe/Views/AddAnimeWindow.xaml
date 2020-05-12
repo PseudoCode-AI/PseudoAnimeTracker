@@ -58,8 +58,8 @@
                     <TextBlock  Grid.Column="1" Grid.Row="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">ANIME ID :</TextBlock>
                     <Border Grid.Column="2" Grid.Row="1" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
                         <TextBox x:Name="AnimeIDTxt"  Width="180" Margin="15 5 10 0" Height="45" 
-                       materialDesign:HintAssist.Hint="Auto-Generate" VerticalAlignment="Center"
-                     FontSize="20"   Background="#fff"  PreviewTextInput="ValidateNoLetters" >
+                        VerticalAlignment="Center"
+                     FontSize="20"   Background="#fff"  PreviewTextInput="ValidateNoLetters" IsEnabled="False">
                    
 
 
@@ -70,7 +70,21 @@
 
                     <TextBlock  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">ANIME TITLE :</TextBlock>
                     <Border Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
-                        <TextBox x:Name="AnimeTitleTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderThickness" Value="3"></Setter>
+                                    <Setter Property="Effect" >
+                                        <Setter.Value>
+                                            <DropShadowEffect Opacity="1" ></DropShadowEffect>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBox x:Name="AnimeTitleTxt"  Width="400" Margin="15 5 10 0" Height="45" 
                        materialDesign:HintAssist.Hint="* Type Name of Anime" VerticalAlignment="Center"
                      FontSize="20"   Background="#fff"   >
 
@@ -82,8 +96,22 @@
 
                     <TextBlock  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">OVERALL RATING :</TextBlock>
                     <Border Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
-                        <TextBox x:Name="OverallRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
-                       materialDesign:HintAssist.Hint="Type Rating Out of 10" VerticalAlignment="Center"
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderThickness" Value="3"></Setter>
+                                    <Setter Property="Effect" >
+                                        <Setter.Value>
+                                            <DropShadowEffect Opacity="1" ></DropShadowEffect>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBox x:Name="OverallRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="* Type Rating Out of 10" VerticalAlignment="Center"
                      FontSize="20"   Background="#fff" PreviewTextInput="ValidateDecimalNumber"  >
 
 
@@ -94,8 +122,22 @@
 
                     <TextBlock Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">STORY RATING :</TextBlock>
                     <Border Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
-                        <TextBox x:Name="StoryRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
-                       materialDesign:HintAssist.Hint="Describe with Words the Story Rating" VerticalAlignment="Center"
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderThickness" Value="3"></Setter>
+                                    <Setter Property="Effect" >
+                                        <Setter.Value>
+                                            <DropShadowEffect Opacity="1" ></DropShadowEffect>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBox x:Name="StoryRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="* Describe with Words the Story Rating" VerticalAlignment="Center"
                      FontSize="20"   Background="#fff"   >
 
 
@@ -106,8 +148,22 @@
 
                     <TextBlock Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">ANIMATION RATING :</TextBlock>
                     <Border  Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
-                        <TextBox x:Name="AnimationRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
-                       materialDesign:HintAssist.Hint="Describe with Words the Animation Rating" VerticalAlignment="Center"
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderThickness" Value="3"></Setter>
+                                    <Setter Property="Effect" >
+                                        <Setter.Value>
+                                            <DropShadowEffect Opacity="1" ></DropShadowEffect>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBox x:Name="AnimationRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="* Describe with Words the Animation Rating" VerticalAlignment="Center"
                      FontSize="20"   Background="#fff"   >
 
 
@@ -118,8 +174,22 @@
 
                     <TextBlock Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">MUSIC RATING :</TextBlock>
                     <Border Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
-                        <TextBox x:Name="MusicRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
-                       materialDesign:HintAssist.Hint="Describe with Words the Music Rating" VerticalAlignment="Center"
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderThickness" Value="3"></Setter>
+                                    <Setter Property="Effect" >
+                                        <Setter.Value>
+                                            <DropShadowEffect Opacity="1" ></DropShadowEffect>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBox x:Name="MusicRatingTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                       materialDesign:HintAssist.Hint="* Describe with Words the Music Rating" VerticalAlignment="Center"
                      FontSize="20"   Background="#fff"   >
 
 
@@ -129,8 +199,22 @@
 
                 <TextBlock Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="1" Margin="10 0 10 0"  FontSize ="20" FontWeight="Bold" VerticalAlignment="Center">DESCRIPTION :</TextBlock>
                      <Border Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" CornerRadius="20" Background="White" BorderBrush="#000" Padding="2" BorderThickness="1" Height="50" Margin="0 0 15 0">
-                         <TextBox x:Name="AnimeDescriptionTxt"  Width="400" Margin="15 5 10 0" Height="45" 
-                            materialDesign:HintAssist.Hint="Describe the Anime" VerticalAlignment="Center"
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderThickness" Value="3"></Setter>
+                                    <Setter Property="Effect" >
+                                        <Setter.Value>
+                                            <DropShadowEffect Opacity="1" ></DropShadowEffect>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <TextBox x:Name="AnimeDescriptionTxt"  Width="400" Margin="15 5 10 0" Height="45" 
+                            materialDesign:HintAssist.Hint="*Describe the Anime" VerticalAlignment="Center"
                           FontSize="20"   Background="#fff"   >
 
 

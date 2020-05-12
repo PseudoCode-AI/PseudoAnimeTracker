@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using AnimeTrackerRe.Views.UserControls;
 
 namespace AnimeTrackerRe.Views
 {
@@ -30,8 +31,47 @@ namespace AnimeTrackerRe.Views
         public AddAnimeWindow()
         {
             InitializeComponent();
-            //JobGrid.ItemsSource = _presenter.LoadJobSchedule();
+            //AnimeTitleTxt.CommandBindings.Add(new CommandBinding(ApplicationCommands.Paste, StopPaste));
 
+            //JobGrid.ItemsSource = presenter.LoadJobSchedule();
+            //foreach (UserControl control in Application.Current.Windows)
+            //{
+            //    if (control.GetType() == typeof(AnimeListTab))
+            //    {
+            //        (control as AnimeListTab).JobGrid.ItemsSource = presenter.LoadJobSchedule();
+            //    }
+            //}
+            CalculateAnimeID();
+
+        }
+        private void StopPaste(object sender, ExecutedRoutedEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+
+        private void CalculateAnimeID()
+        {
+            int x = 0;
+
+            List<AnimeListObject> AnimeList = presenter.LoadJobSchedule().ToList();
+            foreach (var AnimeID in AnimeList)
+            {
+                int z = AnimeID.AnimeId;
+                int y = x + 1;
+                if (z != y)
+                {
+                    AnimeIDTxt.Text = y.ToString();
+                    return;
+                }
+                else if(AnimeList.Count == y)
+                {
+                    y++;
+                    AnimeIDTxt.Text = y.ToString();
+                    return;
+                }
+                x++;
+            }
         }
 
 
@@ -109,19 +149,35 @@ namespace AnimeTrackerRe.Views
 
         private void AddAnotherJobBtn_Click(object sender, RoutedEventArgs e)
         {
+            //var AnimeTitle = AnimeTitleTxt.Text;
+
+            //foreach (UserControl control in Application.Current.Windows)
+            //{
+            //    if (control.GetType() == typeof(AnimeListTab))
+            //    {
+            //        (control as AnimeListTab).JobGrid.ItemsSource = presenter.FilterJobGrid(AnimeTitle);
+            //    }
+            //}
+
+
             SubmitJobBtn_Click(this, new RoutedEventArgs());
             if (success == true)
             {
                 var addJob = new AddAnimeWindow();
                 addJob.ShowDialog();
+                success = false;
             }
 
-            
+
+            //var targetWindow = Application.Current.Windows.Cast<Window>().FirstOrDefault(Window => Window is AddAnimeWindow) as MainWindow;
+            //MainWindow Form = Application.Current.Windows[0] as MainWindow;
+
+         
+
             //ClearFilterBtn_Click(this, new RoutedEventArgs());
-            //var AnimeTitle = AnimeTitleTxt.Text;
 
 
-            //JobGrid.ItemSource = _presenter.FilterJobGrid(AnimeTitle);
+            //Form.JobGrid.ItemsSourc = _presenter.FilterJobGrid(AnimeTitle);
         }
 
 

@@ -1,5 +1,7 @@
 ﻿using AnimeTrackerRe.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,9 +21,19 @@ namespace AnimeTrackerRe.Views.UserControls
             //AnimeIDTxt.CommandBindings.Add(new CommandBinding(ApplicationCommands.Paste, StopPaste));
             AnimeTitleTxt.CommandBindings.Add(new CommandBinding(ApplicationCommands.Paste, StopPaste));
             JobGrid.SelectedIndex = 0;
-        }   
+            TotalAnimeTracker();
 
-            private Presenter _presenter = new Presenter();
+        }
+
+        private Presenter _presenter = new Presenter();
+
+
+        private void TotalAnimeTracker()
+        {
+            List<AnimeListObject> AnimeList = _presenter.LoadJobSchedule().ToList();
+
+            TotalAnimeTxt.Text = AnimeList.Count.ToString();
+        }
 
 
         private void StopPaste(object sender, ExecutedRoutedEventArgs e)
@@ -37,17 +49,20 @@ namespace AnimeTrackerRe.Views.UserControls
         private void AddAnimeBtn_Click(object sender, RoutedEventArgs e)
 
         {
+            var AnimeTitle = "";
+            JobGrid.ItemsSource = _presenter.FilterJobGrid(AnimeTitle);
+            ClearFilterBtn_Click(this, new RoutedEventArgs());
+
             var addJob = new AddAnimeWindow();
             //var addJob = new AddJob();
             addJob.ShowDialog();
+            ClearFilterBtn_Click(this, new RoutedEventArgs());
 
-            var AnimeTitle = AnimeTitleTxt.Text;
 
 
-            JobGrid.ItemsSource = _presenter.FilterJobGrid(AnimeTitle);
         }
 
-      
+
         private void AnimeTitleTxt_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -81,6 +96,7 @@ namespace AnimeTrackerRe.Views.UserControls
 
         private void ClearFilterBtn_Click(object sender, RoutedEventArgs e)
         {
+            TotalAnimeTracker();
             AnimeTitleTxt.Clear();
         
 

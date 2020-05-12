@@ -52,7 +52,7 @@ namespace AnimeTrackerRe
         public ObservableCollection<AnimeListObject> GetJobs()
         {
             ObservableCollection<AnimeListObject> jobsList = new ObservableCollection<AnimeListObject>();
-            string query = "SELECT * FROM ListOfAnime" ;
+            string query = "SELECT * FROM ListOfAnime ORDER BY AnimeID ASC" ;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -83,6 +83,8 @@ namespace AnimeTrackerRe
 
                         jobsList.Add(job);
                     }
+                    var AnimeTitle = "";
+                    FilterJobs(AnimeTitle);
                     return jobsList;
                 }
 
@@ -104,7 +106,7 @@ namespace AnimeTrackerRe
         {
             ObservableCollection<AnimeListObject> jobsList = new ObservableCollection<AnimeListObject>();
             StringBuilder query = new StringBuilder();
-            query.Append("SELECT * FROM ListOfAnime");
+            query.Append("SELECT * FROM ListOfAnime ");
 
             //bool showCompleted = false;
             bool first = true;
