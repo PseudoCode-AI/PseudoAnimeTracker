@@ -285,5 +285,45 @@ namespace AnimeTrackerRe
             }
         }
 
+        public ObservableCollection<AnimeListObject> DeleteRow(int AnimeID)
+        {
+            ObservableCollection<AnimeListObject> AnimeList = new ObservableCollection<AnimeListObject>();
+            string query = $"DELETE FROM ListOfAnime WHERE AnimeID={AnimeID};";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                //using
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+
+                //using
+                SqlDataReader reader = command.ExecuteReader();
+
+                try
+                {
+                    while (reader.Read())
+                    {
+                        var job = new AnimeListObject();
+                        job.AnimeId = Convert.ToInt32(reader["AnimeID"]);
+
+                        AnimeList.Remove(job); ;
+                    }
+                    return AnimeList;
+                }
+
+                catch (Exception ex)
+                {
+                    return new ObservableCollection<AnimeListObject>();
+                }
+
+                finally
+                {
+                    reader.Close();
+                    connection.Close();
+                }
+            }
+        }
+
+
     }
 }

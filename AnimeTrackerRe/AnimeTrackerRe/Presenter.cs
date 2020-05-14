@@ -54,6 +54,10 @@ namespace AnimeTrackerRe
             return SQLCaller.GetLastEnteredJobNumber();
         }
 
+        public ObservableCollection<AnimeListObject> DeleteRow(int AnimeID)
+        {
+            return SQLCaller.DeleteRow(AnimeID);
+        }
         
 
        

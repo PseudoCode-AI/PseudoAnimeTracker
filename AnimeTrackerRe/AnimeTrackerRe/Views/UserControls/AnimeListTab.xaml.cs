@@ -5,7 +5,11 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MessageBox = System.Windows.Forms.MessageBox;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace AnimeTrackerRe.Views.UserControls
 {
@@ -162,7 +166,27 @@ namespace AnimeTrackerRe.Views.UserControls
             }
         }
 
-    
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var SelectedJob = (AnimeListObject)JobGrid.SelectedItem;
+            var SelectedAnimeID = SelectedJob.AnimeId;
+
+            if (MessageBox.Show($"Do you really want to remove Anime #{SelectedAnimeID}?!","Message", MessageBoxButtons.YesNo)==DialogResult.Yes)
+            {
+                if (SelectedJob != null)
+                {
+                    JobGrid.ItemsSource = _presenter.DeleteRow(Convert.ToInt32(SelectedJob.AnimeId));
+                    ClearFilterBtn_Click(this, new RoutedEventArgs());
+                }
+
+            }
+
+
+            
+
+        }
+
+
     }
     
 }
