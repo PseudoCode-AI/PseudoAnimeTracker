@@ -105,7 +105,7 @@ namespace AnimeTrackerRe.Views.UserControls
         
 
             JobGrid.ItemsSource = _presenter.LoadJobSchedule();
-            JobPlatesGrid.ItemsSource = "";
+            //JobPlatesGrid.ItemsSource = "";
         }
 
         private void changeStatusBtn_Click(object sender, RoutedEventArgs e)
@@ -144,11 +144,11 @@ namespace AnimeTrackerRe.Views.UserControls
         private void JobGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedJob = (AnimeListObject)JobGrid.SelectedItem;
-            if (selectedJob != null)
-            {
-                JobPlatesGrid.ItemsSource = _presenter.LoadPlatesForSelectedJob(Convert.ToInt32(selectedJob.AnimeId));
-                JobPlatesGrid.Items.Refresh();
-            }
+            //if (selectedJob != null)
+            //{
+            //    JobPlatesGrid.ItemsSource = _presenter.LoadPlatesForSelectedJob(Convert.ToInt32(selectedJob.AnimeId));
+            //    JobPlatesGrid.Items.Refresh();
+            //}
         }
 
         private void refreshButton_Click(object sender, RoutedEventArgs e)
@@ -159,11 +159,11 @@ namespace AnimeTrackerRe.Views.UserControls
             JobGrid.ItemsSource = _presenter.FilterJobGrid(AnimeTitle);
             JobGrid.SelectedIndex = 0;
             var selectedJob = (AnimeListObject)JobGrid.SelectedItem;
-            if (selectedJob != null)
-            {
-                JobPlatesGrid.ItemsSource = _presenter.LoadPlatesForSelectedJob(Convert.ToInt32(selectedJob.AnimeId));
-                JobPlatesGrid.Items.Refresh();
-            }
+            //if (selectedJob != null)
+            //{
+            //    JobPlatesGrid.ItemsSource = _presenter.LoadPlatesForSelectedJob(Convert.ToInt32(selectedJob.AnimeId));
+            //    JobPlatesGrid.Items.Refresh();
+            //}
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
