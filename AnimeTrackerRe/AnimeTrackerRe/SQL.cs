@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
@@ -246,10 +247,10 @@ namespace AnimeTrackerRe
 
 
 
-        public ObservableCollection<AnimeListObject> LoadPlatesForSelectedJob(int AnimeID)
+        public string LoadPlatesForSelectedJob(string AnimeTitle)
         {
-            ObservableCollection<AnimeListObject> platesList = new ObservableCollection<AnimeListObject>();
-            string query = $"SELECT AnimeDescription FROM ListOfAnime WHERE AnimeID = {AnimeID} ;";
+            //ObservableCollection<AnimeListObject> platesList = new ObservableCollection<AnimeListObject>();
+            string query = $"SELECT AnimeTitle FROM ListOfAnime WHERE AnimeTitle = '{AnimeTitle}' ;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -260,21 +261,28 @@ namespace AnimeTrackerRe
                 //using
                 SqlDataReader reader = command.ExecuteReader();
 
+
                 try
                 {
+                    string Title = "";
+
                     while (reader.Read())
                     {
-                        var job = new AnimeListObject();
-                        job.AnimeDescription = Convert.ToString(reader["AnimeDescription"]);
-                        
-                        platesList.Add(job);
+                        Title += (reader[0].ToString());
+                        //Title = (string)command.ExecuteScalar();
+                        //retrun dataSet.Tables[0].Rows[0]["AnimeTitle"].ToString();
+
+                        //var job = new AnimeListObject();
+                        //job.AnimeTitle = Convert.ToString(reader["AnimeTitle"]);
+
+                        //platesList.Add(job);
                     }
-                    return platesList;
+                    return Title;
                 }
 
                 catch (Exception ex)
                 {
-                    return new ObservableCollection<AnimeListObject>();
+                    return "";
                 }
 
                 finally

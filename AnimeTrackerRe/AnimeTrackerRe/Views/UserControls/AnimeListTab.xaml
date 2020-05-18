@@ -5,6 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AnimeTrackerRe.Views.UserControls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+             
+             
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+
+             
              xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
              fw:AcrylicWindow.Enabled="true" 
              fw:AcrylicWindow.TintOpacity=".92"
@@ -12,6 +18,11 @@
              fw:AcrylicWindow.FallbackColor="White"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1500" Loaded="UserControl_Loaded" >
+
+    <!--<UserControl.CommandBindings>
+        <CommandBinding Command="NavigationCommands.GoToPage" CanExecute="GoToPage_CanExecute" Executed="GoToPage_Executed"></CommandBinding>
+        
+    </UserControl.CommandBindings>-->
 
     <UserControl.Resources></UserControl.Resources>
     <Grid  >
@@ -189,7 +200,7 @@
                   CanUserReorderColumns="False" CanUserResizeColumns="True" 
                     IsReadOnly="True" SelectionMode="Single" AutoGeneratingColumn="JobGrid_AutoGeneratingColumn" 
                   SelectionChanged="JobGrid_SelectionChanged" x:FieldModifier="public"  AlternationCount="2" FontFamily="Segoe UI"  FontSize="20"
-                   TextBlock.TextAlignment="Center" RowHeight="40"  ColumnWidth="auto">
+                   TextBlock.TextAlignment="Center" RowHeight="40"  ColumnWidth="auto" >
             <DataGrid.Resources>
                 <Style TargetType="TextBlock">
                     <Setter Property="Margin" Value="10"></Setter>
@@ -250,10 +261,30 @@
            
 
         </DataGrid>
-       
-        <!--<WebBrowser  x:Name="WebBrowserGrid"  Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="4" Source="http://www.wikipedia/One-Piece" Margin="20">
+
+        
             
-        </WebBrowser>-->
+       
+        <WebBrowser  x:Name="WebBrowserGrid"  Grid.Row="1" Grid.Column="3" 
+                        Grid.ColumnSpan="2" Grid.RowSpan="4"  Margin="10"  Loaded="GridWindow_Loaded" >
+            
+        </WebBrowser>
+
+        <!--<Grid x:Name="Grid1"  Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"
+              Grid.RowSpan="4"  Margin="20">
+            <WindowsFormsHost Name="WBHost" Loaded="GridWindow_Loaded">
+                
+            </WindowsFormsHost>
+            
+          
+          </Grid>-->
+           
+       
+      
+        
+        
+        
+        
 
         <!--<DataGrid x:Name="JobPlatesGrid" AutoGenerateColumns="True" Grid.Column="3" 
                   Grid.ColumnSpan="2" Grid.Row="1" Margin="20 0 0 0" Grid.RowSpan="4" 

@@ -31,9 +31,9 @@ namespace AnimeTrackerRe
             return SQLCaller.GetJobs();
         }
 
-        public ObservableCollection<AnimeListObject> LoadPlatesForSelectedJob(int AnimeID)
+        public string LoadPlatesForSelectedJob(string AnimeTitle)
         {
-            return SQLCaller.LoadPlatesForSelectedJob(AnimeID);
+            return SQLCaller.LoadPlatesForSelectedJob(AnimeTitle);
         }
 
 
